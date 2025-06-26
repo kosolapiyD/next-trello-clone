@@ -14,14 +14,14 @@ const Navbar = () => {
         </div>
 
         <Button
-          variant='default'
+          variant='primary'
           size='sm'
           className='rounded-sm hidden md:block h-auto  py-1.5 px-2'
         >
           create
         </Button>
         <Button
-          variant='default'
+          variant='primary'
           size='sm'
           className='rounded-sm block md:hidden'
         >
