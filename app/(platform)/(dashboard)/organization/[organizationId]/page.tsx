@@ -8,8 +8,6 @@ const OrganizationIdPage = async () => {
   const supabase = await createClient();
   const { data: boards } = await supabase.from(dbName).select();
 
-  console.log('boards :>> ', boards);
-
   return (
     <div>
       <Form />
