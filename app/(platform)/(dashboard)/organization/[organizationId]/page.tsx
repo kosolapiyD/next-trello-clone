@@ -1,7 +1,23 @@
-const OrganizationIdPage = () => {
+import { create } from '@/actions/create-board';
+import { Button } from '@/components/ui/button';
+import { createClient, dbName } from '@/supabase/utils/server';
+import { Board } from './board';
+import { Form } from './form';
+
+const OrganizationIdPage = async () => {
+  const supabase = await createClient();
+  const { data: boards } = await supabase.from(dbName).select();
+
+  console.log('boards :>> ', boards);
+
   return (
     <div>
-      <h1>Organization Page</h1>
+      <Form />
+      <div className='space-y-2'>
+        {boards?.map((board) => (
+          <Board key={board.id} id={board.id} title={board.title} />
+        ))}
+      </div>
     </div>
   );
 };
